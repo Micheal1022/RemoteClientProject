@@ -19,7 +19,7 @@ VS_VERSION_INFO VERSIONINFO
 		BEGIN
 			BLOCK "000404b0"
 			BEGIN
-				VALUE "CompanyName", "BVDZ\0"
+				VALUE "CompanyName", "MICHEAL.CHEN\0"
 				VALUE "FileDescription", "Qt Creator based on Qt 5.10.0\0"
 				VALUE "FileVersion", "1.0.0.0\0"
 				VALUE "LegalCopyright", "Copyright 2018-2020 The Qt Company Ltd. All rights reserved.\0"

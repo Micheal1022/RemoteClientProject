@@ -13,7 +13,7 @@ VERSION = 1.0.0
 ## 图标
 RC_ICONS = Image/app.ico
 ## 公司名称
-QMAKE_TARGET_COMPANY = "BVDZ"
+QMAKE_TARGET_COMPANY = "MICHEAL.CHEN"
 ## 产品名称
 QMAKE_TARGET_PRODUCT = "RemoteClient"
 ## 文件说明

@@ -19,11 +19,11 @@ VS_VERSION_INFO VERSIONINFO
 		BEGIN
 			BLOCK "000404b0"
 			BEGIN
-				VALUE "CompanyName", "MICHEAL.CHEN\0"
+				VALUE "CompanyName", "BVDZ\0"
 				VALUE "FileDescription", "Qt Creator based on Qt 5.10.0\0"
 				VALUE "FileVersion", "1.0.0.0\0"
 				VALUE "LegalCopyright", "Copyright 2018-2020 The Qt Company Ltd. All rights reserved.\0"
-				VALUE "OriginalFilename", "RemoteClient.exe\0"
+				VALUE "OriginalFilename", "电气火灾远程客户端.exe.exe\0"
 				VALUE "ProductName", "RemoteClient\0"
 				VALUE "ProductVersion", "1.0.0.0\0"
 			END
