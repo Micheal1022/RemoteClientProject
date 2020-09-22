@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>UserLogin</class>
+ <widget class="QDialog" name="UserLogin">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>370</width>
+    <height>240</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog{
+background-color: rgb(15, 41, 68);
+}
+QDialog#UserLogin{
+	background-color: rgb(15, 41, 66);
+	border:1px solid white;
+	border-radius:10px;
+}
+QToolButton{
+font: 18pt &quot;楷体&quot;;
+color: rgb(255, 255, 255);
+border:1px solid;
+border-radius:10px;
+border-color: rgb(0, 0, 0);
+background-color: rgb(43, 79, 102);
+}
+QToolButton:hover{
+font: 17pt &quot;楷体&quot;;
+color: rgb(255, 0, 0);
+color: rgb(0, 185, 185);
+/*background-color: rgb(3, 127, 119);*/
+}
+QGroupBox{
+font: 16pt &quot;楷体&quot;;
+border: 1px none black;
+color: rgb(44, 44, 44);
+border-radius:20px;
+}
+QGroupBox::title {
+color: rgb(255, 255, 255);
+subcontrol-origin: margin;
+subcontrol-position: top left; /* position at the top center */
+padding: 0 3px;
+background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(28, 183, 200, 255), stop:1 rgba(0, 85, 127, 255));
+}
+QLabel{
+font: 14pt &quot;楷体&quot;;
+color: rgb(255, 255, 255);
+}
+
+QLineEdit{
+font: 12pt &quot;楷体&quot;;
+color: rgb(255, 255, 255);
+border:1px none rgb(79, 229, 219);
+background-color: rgb(255, 255, 255);
+background-color: rgb(15, 41, 68);
+}
+QComboBox {
+font: 14pt &quot;楷体&quot;;
+color: rgb(255, 255, 255);
+border:1px solid rgb(53, 156, 212);
+background-color: rgb(15, 41, 68);
+}
+QComboBox QAbstractItemView::item{
+font: 14pt &quot;楷体&quot;;
+color: rgb(255, 255, 255);
+height:30px;
+}
+QPushButton{
+font: 14pt &quot;楷体&quot;;
+color:white;
+width:50;
+height:30;
+border:1px solid;
+border-radius:4px;
+border-color: rgb(66, 109, 127);
+}
+QPushButton:pressed{
+font: 11pt &quot;楷体&quot;;
+}</string>
+  </property>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>371</width>
+     <height>216</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>用户登录                        </string>
+   </property>
+   <widget class="QLabel" name="lbUser">
+    <property name="geometry">
+     <rect>
+      <x>95</x>
+      <y>50</y>
+      <width>30</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Image/user.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>110</y>
+      <width>30</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/Image/pwd.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="tBtnOk">
+    <property name="geometry">
+     <rect>
+      <x>85</x>
+      <y>165</y>
+      <width>90</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>楷体</family>
+      <pointsize>18</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="text">
+     <string>确认</string>
+    </property>
+    <property name="icon">
+     <iconset resource="../image.qrc">
+      <normaloff>:/Image/ok.png</normaloff>:/Image/ok.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>25</width>
+      <height>25</height>
+     </size>
+    </property>
+    <property name="toolButtonStyle">
+     <enum>Qt::ToolButtonTextBesideIcon</enum>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="tBtnBack">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>195</x>
+      <y>165</y>
+      <width>90</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>楷体</family>
+      <pointsize>18</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="text">
+     <string>返回</string>
+    </property>
+    <property name="icon">
+     <iconset resource="../image.qrc">
+      <normaloff>:/Image/back.png</normaloff>:/Image/back.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>25</width>
+      <height>25</height>
+     </size>
+    </property>
+    <property name="toolButtonStyle">
+     <enum>Qt::ToolButtonTextBesideIcon</enum>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cbBoxUserType">
+    <property name="geometry">
+     <rect>
+      <x>135</x>
+      <y>50</y>
+      <width>111</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>楷体</family>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::DefaultContextMenu</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="maxVisibleItems">
+     <number>3</number>
+    </property>
+    <property name="maxCount">
+     <number>3</number>
+    </property>
+    <item>
+     <property name="text">
+      <string>管理员</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>75</x>
+      <y>40</y>
+      <width>220</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid rgb(14, 237, 237);
+border-radius:10px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>75</x>
+      <y>100</y>
+      <width>220</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid rgb(14, 237, 237);
+border-radius:10px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEditPwd">
+    <property name="geometry">
+     <rect>
+      <x>135</x>
+      <y>110</y>
+      <width>100</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::ClickFocus</enum>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::NoContextMenu</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="maxLength">
+     <number>6</number>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
+    </property>
+    <property name="placeholderText">
+     <string>输入密码</string>
+    </property>
+   </widget>
+   <zorder>label_4</zorder>
+   <zorder>label_5</zorder>
+   <zorder>lbUser</zorder>
+   <zorder>label_3</zorder>
+   <zorder>tBtnOk</zorder>
+   <zorder>tBtnBack</zorder>
+   <zorder>cbBoxUserType</zorder>
+   <zorder>lineEditPwd</zorder>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../image.qrc"/>
+ </resources>
+ <connections/>
+</ui>

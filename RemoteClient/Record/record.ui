@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Record</class>
+ <widget class="QWidget" name="Record">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1520</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#Record{
+background-color: rgb(15, 41, 68);
+}
+QGroupBox{
+font: 14pt &quot;楷体&quot;;
+border: 1px solid white;
+border-radius:8px;
+margin-top:10px;
+}
+QGroupBox:title{
+color:white;
+subcontrol-origin: margin;
+left: 5px;
+}
+QToolButton{
+font: 18pt &quot;楷体&quot;;
+color: rgb(255, 255, 255);
+border:1px solid;
+border-radius:10px;
+border-color: rgb(0, 0, 0);
+background-color: rgb(43, 79, 102);
+}
+QToolButton:hover{
+font: 17pt &quot;楷体&quot;;
+color: rgb(255, 0, 0);
+color: rgb(0, 185, 185);
+/*background-color: rgb(3, 127, 119);*/
+}
+QPushButton{
+width:80px;
+height:35px;
+font: 18pt &quot;楷体&quot;;
+color: rgb(255, 255, 255);
+border:1px solid;
+border-radius:10px;
+border-color: rgb(0, 0, 0);
+background-color: rgb(43, 79, 102);
+}
+
+QPushButton:hover{
+background-color: rgb(0, 170, 255);
+}
+
+QLabel{
+font: 16pt &quot;楷体&quot;;
+color: rgb(255, 255, 255);
+}
+QComboBox{
+font: 14pt &quot;楷体&quot;;
+color: rgb(255, 255, 255);
+border:1px solid white;
+background-color: rgb(15, 41, 68);
+}
+QComboBox QAbstractItemView{
+font: 14pt &quot;楷体&quot;;
+color: rgb(255, 255, 255);
+border:1px solid white;
+background-color: rgb(15, 41, 68);
+}
+QComboBox QAbstractItemView::item {
+    color: black;
+    height: 22px;
+    border: 1px solid white;
+}
+QComboBox QAbstractItemView::item:selected{
+border: 1px solid white;
+background-color: rgb(85, 255, 127);
+}
+
+QDateTimeEdit{
+font: 16pt &quot;楷体&quot;;
+border:1px solid white;
+color: rgb(255, 255, 255);
+background-color: rgb(15, 41, 68);
+}
+QDateTimeEdit::up-button{
+ width: 25px;
+ height: 19px;
+}
+QDateTimeEdit::down-button{
+ width: 25px;
+ height: 19px;
+}
+QDialog{
+background-color: rgb(0, 185, 185);
+}</string>
+  </property>
+  <widget class="QGroupBox" name="groupBox_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>5</y>
+     <width>1505</width>
+     <height>710</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>70</y>
+      <width>1485</width>
+      <height>635</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTableView {
+selection-background-color: rgb(0, 185, 185);  
+}
+QTableWidget{
+font: 13pt &quot;楷体&quot; rgb(255, 255, 255);
+border:1px solid;
+gridline-color: rgb(0, 0, 0);
+background-color: rgb(3, 127, 119);
+background-color: rgb(15, 41, 68);
+}
+
+QCheckBox{
+spacing: 10px;
+}
+QCheckBox::indicator{
+width:40px;
+height:30px;
+margin-left:20px;
+image: url(:/Image/uncheck.png);
+}
+QCheckBox::indicator::unchecked {
+image: url(:/Image/uncheck.png);
+}
+QCheckBox::indicator::checked {
+image: url(:/Image/checked.png);
+}</string>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="tBtnDelete">
+    <property name="geometry">
+     <rect>
+      <x>1400</x>
+      <y>20</y>
+      <width>100</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>删除</string>
+    </property>
+    <property name="icon">
+     <iconset resource="../image.qrc">
+      <normaloff>:/Image/recycle.png</normaloff>:/Image/recycle.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="toolButtonStyle">
+     <enum>Qt::ToolButtonTextBesideIcon</enum>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="tBtnQuery">
+    <property name="geometry">
+     <rect>
+      <x>1280</x>
+      <y>20</y>
+      <width>100</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>查询</string>
+    </property>
+    <property name="icon">
+     <iconset resource="../image.qrc">
+      <normaloff>:/Image/search.png</normaloff>:/Image/search.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="toolButtonStyle">
+     <enum>Qt::ToolButtonTextBesideIcon</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>15</x>
+      <y>20</y>
+      <width>100</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>网络地址：</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cbBoxHost">
+    <property name="geometry">
+     <rect>
+      <x>115</x>
+      <y>20</y>
+      <width>210</width>
+      <height>40</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>20</y>
+      <width>30</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>从</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>850</x>
+      <y>20</y>
+      <width>30</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>到</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QDateTimeEdit" name="dTEditStart">
+    <property name="geometry">
+     <rect>
+      <x>575</x>
+      <y>20</y>
+      <width>260</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+    <property name="displayFormat">
+     <string>yyyy年MM月dd日 HH:mm</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cbBoxType">
+    <property name="geometry">
+     <rect>
+      <x>395</x>
+      <y>20</y>
+      <width>116</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>全部故障</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>报警故障</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>模块故障</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>通讯故障</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>336</x>
+      <y>20</y>
+      <width>56</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>故障：</string>
+    </property>
+   </widget>
+   <widget class="QDateTimeEdit" name="dTEditStop">
+    <property name="geometry">
+     <rect>
+      <x>880</x>
+      <y>20</y>
+      <width>260</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>楷体</family>
+      <pointsize>16</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+    <property name="displayFormat">
+     <string>yyyy年MM月dd日 HH:mm</string>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="tBtnExport">
+    <property name="geometry">
+     <rect>
+      <x>1160</x>
+      <y>20</y>
+      <width>100</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>导出</string>
+    </property>
+    <property name="icon">
+     <iconset resource="../image.qrc">
+      <normaloff>:/Image/dataSearch.png</normaloff>:/Image/dataSearch.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="toolButtonStyle">
+     <enum>Qt::ToolButtonTextBesideIcon</enum>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../image.qrc"/>
+ </resources>
+ <connections/>
+</ui>

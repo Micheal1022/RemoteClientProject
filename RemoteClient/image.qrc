@@ -1,0 +1,36 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Image/btnClicked.png</file>
+        <file>Image/saveConf.png</file>
+        <file>Image/addDev.png</file>
+        <file>Image/delDev.png</file>
+        <file>Image/search.png</file>
+        <file>Image/recycle.png</file>
+        <file>Image/alarmDev.png</file>
+        <file>Image/dropDev.png</file>
+        <file>Image/errorDev.png</file>
+        <file>Image/normalDev.png</file>
+        <file>Image/arrow-down.png</file>
+        <file>Image/arrow-up.png</file>
+        <file>Image/speaker.png</file>
+        <file>Image/reset.png</file>
+        <file>Image/widget_1.png</file>
+        <file>Image/clock.png</file>
+        <file>Image/uncheck.png</file>
+        <file>Image/checked.png</file>
+        <file>Image/errorInfo.png</file>
+        <file>Image/alarmInfo.png</file>
+        <file>Image/headPage.png</file>
+        <file>Image/tailPage.png</file>
+        <file>Image/app.ico</file>
+        <file>Image/power.png</file>
+        <file>Image/ss_logo.png</file>
+        <file>Image/pwd.png</file>
+        <file>Image/user.png</file>
+        <file>Image/back.png</file>
+        <file>Image/ok.png</file>
+        <file>Image/connect.png</file>
+        <file>Image/dataSearch.png</file>
+        <file>Image/selfCheck.png</file>
+    </qresource>
+</RCC>

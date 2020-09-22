@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>InfoHintDlg</class>
+ <widget class="QDialog" name="InfoHintDlg">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog#InfoHintDlg{
+	background-color: rgb(15, 41, 66);
+	border:1px solid white;
+	border-radius:10px;
+}
+QToolButton{
+font: 18pt &quot;楷体&quot;;
+color: rgb(255, 255, 255);
+border:1px solid;
+border-radius:10px;
+border-color: rgb(0, 0, 0);
+background-color: rgb(43, 79, 102);
+}
+QToolButton:hover{
+font: 17pt &quot;楷体&quot;;
+color: rgb(255, 0, 0);
+color: rgb(0, 185, 185);
+/*background-color: rgb(3, 127, 119);*/
+}
+QGroupBox{
+font: 16pt &quot;楷体&quot;;
+border: 1px solid black;
+color: rgb(44, 44, 44);
+border-radius:20px;
+}
+QGroupBox::title {
+color: rgb(255, 255, 255);
+subcontrol-origin: margin;
+subcontrol-position: top left; /* position at the top center */
+padding: 0 3px;
+background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(28, 183, 200, 255), stop:1 rgba(0, 85, 127, 255));
+}
+QLabel{
+font: 14pt &quot;楷体&quot;;
+color: rgb(255, 255, 255);
+}
+</string>
+  </property>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>5</x>
+     <y>5</y>
+     <width>990</width>
+     <height>490</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="title">
+    <string>报警信息                                                                   </string>
+   </property>
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>5</x>
+      <y>30</y>
+      <width>980</width>
+      <height>390</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTableView {
+selection-background-color: rgb(0, 185, 185);  
+}
+QTableWidget{
+font: 13pt &quot;楷体&quot; rgb(255, 255, 255);
+border:1px solid;
+gridline-color: rgb(0, 0, 0);
+background-color: rgb(3, 127, 119);
+background-color: rgb(15, 41, 68);
+}</string>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="tBtnClose">
+    <property name="geometry">
+     <rect>
+      <x>880</x>
+      <y>435</y>
+      <width>100</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>关闭</string>
+    </property>
+    <property name="icon">
+     <iconset resource="../image.qrc">
+      <normaloff>:/Image/delDev.png</normaloff>:/Image/delDev.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="toolButtonStyle">
+     <enum>Qt::ToolButtonTextBesideIcon</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbInfoNum">
+    <property name="geometry">
+     <rect>
+      <x>665</x>
+      <y>435</y>
+      <width>206</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>信息共1000条</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../image.qrc"/>
+ </resources>
+ <connections/>
+</ui>
