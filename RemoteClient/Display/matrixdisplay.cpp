@@ -487,9 +487,9 @@ void MatrixDisplay::slotNodeUpdate(QByteArray byteArray)
     uint canId      = (uchar)byteArray.at(CANID_H)<<8 | (uchar)byteArray.at(CANID_L);
     uint nodeStatus = (uchar)byteArray.at(STATE);
     uint nodeType   = (uchar)byteArray.at(TYPE);
-    uint curValue   = (uchar)byteArray.at(CURVALUE_H) << 8   | (uchar)byteArray.at(CURVALUE_L);
+    uint curValue   = (uchar)byteArray.at(CURVALUE_H)   << 8 | (uchar)byteArray.at(CURVALUE_L);
     uint alarmValue = (uchar)byteArray.at(ALARMVALUE_H) << 8 | (uchar) byteArray.at(ALARMVALUE_L);
-    uint baseValue  = (uchar)byteArray.at(BASEVALUE_H) << 8  | (uchar)byteArray.at(BASEVALUE_L);
+    uint baseValue  = (uchar)byteArray.at(BASEVALUE_H)  << 8 | (uchar)byteArray.at(BASEVALUE_L);
     //显示汉字
     QByteArray nodeAddrBy = byteArray.mid(BASEVALUE_L+1,byteArray.size() - 13);
     QString nodeAddrStr = QString::fromUtf8(nodeAddrBy);
