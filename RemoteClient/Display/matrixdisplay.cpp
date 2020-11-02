@@ -523,10 +523,12 @@ void MatrixDisplay::slotNodeUpdate(QByteArray byteArray)
         }
         if (tBtnUnitInfoList[index].alarmFlag == true) {
             tBtnUnitInfoList[index].alarmFlag = false;
-            m_errorCount--;
+            m_alarmCount--;
             delStringList(m_alarmList,pass,canId,ALARM);
         }
-        if(tBtnUnitInfoList[index].dropFlag == false && tBtnUnitInfoList[index].errorFlag == false && tBtnUnitInfoList[index].alarmFlag == false) {
+        if(tBtnUnitInfoList[index].dropFlag == false
+                && tBtnUnitInfoList[index].errorFlag == false
+                && tBtnUnitInfoList[index].alarmFlag == false) {
             tBtnUnitInfoList[index].nodeStatus = NORMAL;
             if (LEAK == nodeType) {
                 tBtnUnitInfoList[index].leakAlarmLock = 0;
@@ -539,8 +541,12 @@ void MatrixDisplay::slotNodeUpdate(QByteArray byteArray)
         break;
     case ALARM:
         if (tBtnUnitInfoList[index].alarmFlag == false) {
-            tBtnUnitInfoList[index].alarmFlag = true;
             tBtnUnitInfoList[index].nodeStatus = ALARM;
+            tBtnUnitInfoList[index].alarmFlag = true;
+            tBtnUnitInfoList[index].dropFlag  = false;
+            tBtnUnitInfoList[index].errorFlag = false;
+            tBtnUnitInfoList[index].normalFlag= false;
+
             m_alarmCount++;
             //报警列表
             QString alarmTime = QDateTime::currentDateTime().toString("yyyy年MM月dd日 hh:mm:ss");
@@ -560,9 +566,13 @@ void MatrixDisplay::slotNodeUpdate(QByteArray byteArray)
         m_tBtnGroup->button(index)->setStyleSheet(m_redStyle);
         break;
     case ERROR:
-        if (tBtnUnitInfoList[index].nodeStatus != ALARM && tBtnUnitInfoList[index].errorFlag == false) {
+        if (tBtnUnitInfoList[index].errorFlag == false) {
             tBtnUnitInfoList[index].errorFlag = true;
             tBtnUnitInfoList[index].nodeStatus = ERROR;
+
+            tBtnUnitInfoList[index].dropFlag  = false;
+            tBtnUnitInfoList[index].errorFlag = false;
+            tBtnUnitInfoList[index].alarmFlag = false;
             m_errorCount++;
             //故障列表
             QString errorTime = QDateTime::currentDateTime().toString("yyyy年MM月dd日 hh:mm:ss");
@@ -576,9 +586,13 @@ void MatrixDisplay::slotNodeUpdate(QByteArray byteArray)
         m_tBtnGroup->button(index)->setStyleSheet(m_yellowStyle);
         break;
     case DROPED:
-        if (tBtnUnitInfoList[index].nodeStatus != ALARM && tBtnUnitInfoList[index].dropFlag == false) {
+        if (tBtnUnitInfoList[index].dropFlag == false) {
             tBtnUnitInfoList[index].dropFlag = true;
             tBtnUnitInfoList[index].nodeStatus = DROPED;
+
+            tBtnUnitInfoList[index].alarmFlag  = false;
+            tBtnUnitInfoList[index].errorFlag = false;
+            tBtnUnitInfoList[index].normalFlag= false;
             m_errorCount++;
             //掉线列表
             QString errorTime = QDateTime::currentDateTime().toString("yyyy年MM月dd日 hh:mm:ss");

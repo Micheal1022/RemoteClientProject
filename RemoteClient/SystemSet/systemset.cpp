@@ -117,7 +117,7 @@ void SystemSet::confHostList(QTableWidget *tableWidget)
             item = new QTableWidgetItem;
             item->setFont(ft);
             item->setTextAlignment(Qt::AlignCenter);
-            item->setTextColor(QColor("white"));
+            item->setForeground(QColor("white"));
 
             switch (column)
             {
@@ -181,7 +181,7 @@ void SystemSet::slotBtnAddHost()
     {
         item = new QTableWidgetItem;
         item->setFont(ft);
-        item->setTextColor(QColor("white"));
+        item->setForeground(QColor("white"));
         item->setTextAlignment(Qt::AlignCenter);
         switch (column) {
         case HOST:

@@ -27,9 +27,9 @@ void UdpThread::initConf(const QHostAddress &host, quint16 port)
 {
     m_host = host;
     m_port = port;
-    //QString localIP = getHostIpAddress();
-    //m_udpSocket->bind(QHostAddress(localIP),m_port);
-    m_udpSocket->bind(QHostAddress::Any,m_port);
+    QString localIP = getHostIpAddress();
+    m_udpSocket->bind(QHostAddress(localIP),m_port);
+    //m_udpSocket->bind(QHostAddress::Any,m_port);
 }
 
 

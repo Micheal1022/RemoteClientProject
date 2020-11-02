@@ -154,7 +154,7 @@ void Record::recordListShow(QTableWidget *tableWidget, QString querySql)
             item = new QTableWidgetItem;
             item->setFont(ft);
             item->setTextAlignment(Qt::AlignCenter);
-            item->setTextColor(QColor(255,255,255));
+            item->setForeground(QColor(255,255,255));
 
             switch (column)
             {

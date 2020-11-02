@@ -331,7 +331,7 @@ font: 18pt &quot;楷体&quot;;</string>
 color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
-      <string>电气火灾监控远程客户端</string>
+      <string>电气火灾远程客户端</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
