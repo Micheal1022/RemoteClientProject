@@ -18,7 +18,7 @@
 background-color: rgb(15, 41, 68);
 }
 QGroupBox{
-font: 14pt &quot;楷体&quot;;
+font: 14pt &quot;微软雅黑&quot;;
 border: 1px solid white;
 border-radius:8px;
 margin-top:10px;
@@ -29,7 +29,7 @@ subcontrol-origin: margin;
 left: 5px;
 }
 QToolButton{
-font: 18pt &quot;楷体&quot;;
+font: 18pt &quot;微软雅黑&quot;;
 color: rgb(255, 255, 255);
 border:1px solid;
 border-radius:10px;
@@ -37,7 +37,7 @@ border-color: rgb(0, 0, 0);
 background-color: rgb(43, 79, 102);
 }
 QToolButton:hover{
-font: 17pt &quot;楷体&quot;;
+font: 17pt &quot;微软雅黑&quot;;
 color: rgb(255, 0, 0);
 color: rgb(0, 185, 185);
 /*background-color: rgb(3, 127, 119);*/
@@ -45,7 +45,7 @@ color: rgb(0, 185, 185);
 QPushButton{
 width:80px;
 height:35px;
-font: 18pt &quot;楷体&quot;;
+font: 18pt &quot;微软雅黑&quot;;
 color: rgb(255, 255, 255);
 border:1px solid;
 border-radius:10px;
@@ -58,17 +58,17 @@ background-color: rgb(0, 170, 255);
 }
 
 QLabel{
-font: 16pt &quot;楷体&quot;;
+font: 16pt &quot;微软雅黑&quot;;
 color: rgb(255, 255, 255);
 }
 QComboBox{
-font: 14pt &quot;楷体&quot;;
+font: 14pt &quot;微软雅黑&quot;;
 color: rgb(255, 255, 255);
 border:1px solid white;
 background-color: rgb(15, 41, 68);
 }
 QComboBox QAbstractItemView{
-font: 14pt &quot;楷体&quot;;
+font: 14pt &quot;微软雅黑&quot;;
 color: rgb(255, 255, 255);
 border:1px solid white;
 background-color: rgb(15, 41, 68);
@@ -84,7 +84,7 @@ background-color: rgb(85, 255, 127);
 }
 
 QDateTimeEdit{
-font: 16pt &quot;楷体&quot;;
+font: 16pt &quot;微软雅黑&quot;;
 border:1px solid white;
 color: rgb(255, 255, 255);
 background-color: rgb(15, 41, 68);
@@ -127,7 +127,7 @@ background-color: rgb(0, 185, 185);
 selection-background-color: rgb(0, 185, 185);  
 }
 QTableWidget{
-font: 13pt &quot;楷体&quot; rgb(255, 255, 255);
+font: 13pt &quot;微软雅黑&quot; rgb(255, 255, 255);
 border:1px solid;
 gridline-color: rgb(0, 0, 0);
 background-color: rgb(3, 127, 119);
@@ -331,7 +331,7 @@ image: url(:/Image/checked.png);
     </property>
     <property name="font">
      <font>
-      <family>楷体</family>
+      <family>微软雅黑</family>
       <pointsize>16</pointsize>
       <weight>50</weight>
       <italic>false</italic>

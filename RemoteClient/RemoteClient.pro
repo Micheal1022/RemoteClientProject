@@ -48,7 +48,7 @@ SOURCES += \
     MainPage/homepage.cpp \
     MainPage/main.cpp \
     Display/displaycontainer.cpp \
-    Display/matrixdisplay.cpp \
+    Display/efinfo.cpp \
     MainPage/guimanager.cpp \
     Record/record.cpp \
     SystemSet/systemset.cpp \
@@ -56,12 +56,13 @@ SOURCES += \
     SqlManager/sqlmanager.cpp \
     Display/udpthread.cpp \
     Display/infohintdlg.cpp \
-    UserLogin/userlogin.cpp
+    UserLogin/userlogin.cpp \
+    Display/pminfo.cpp
 
 HEADERS += \
     MainPage/homepage.h \
     Display/displaycontainer.h \
-    Display/matrixdisplay.h \
+    Display/efinfo.h \
     MainPage/guimanager.h \
     Record/record.h \
     SystemSet/systemset.h \
@@ -69,17 +70,19 @@ HEADERS += \
     SqlManager/sqlmanager.h \
     Display/udpthread.h \
     Display/infohintdlg.h \
-    UserLogin/userlogin.h
+    UserLogin/userlogin.h \
+    Display/pminfo.h
 
 FORMS += \
     MainPage/homepage.ui \
     Display/displaycontainer.ui \
-    Display/matrixdisplay.ui \
+    Display/efinfo.ui \
     Record/record.ui \
     SystemSet/systemset.ui \
     SystemInfo/systeminfo.ui \
     Display/infohintdlg.ui \
-    UserLogin/userlogin.ui
+    UserLogin/userlogin.ui \
+    Display/pminfo.ui
 
 RESOURCES += \
     image.qrc

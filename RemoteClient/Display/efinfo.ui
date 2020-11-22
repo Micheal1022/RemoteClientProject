@@ -1,0 +1,1267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>EFInfo</class>
+ <widget class="QWidget" name="EFInfo">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1320</width>
+    <height>710</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget{
+background-color: rgb(15, 41, 68);
+}
+QGroupBox{
+font: 14pt &quot;微软雅黑&quot;;
+color: rgb(255, 255, 255);
+border: 1px solid white;
+border-radius:8px;
+margin-top:10px;
+}
+QToolButton{
+font: 12pt &quot;微软雅黑&quot;;
+color: rgb(255, 255, 255);
+color: rgb(79, 229, 219);
+color: rgb(0, 80, 117);
+border:1px solid;
+border-radius:10px;
+border-color: rgb(0, 0, 0);
+background-color: rgb(67, 182, 25);
+}
+QToolButton:hover{
+font: 13pt &quot;微软雅黑&quot;;
+color:rgb(79, 229, 219);
+/*background-color: rgb(3, 127, 119);*/
+}
+QToolButton#tBtnReset{
+font: 18pt &quot;微软雅黑&quot;;
+color: rgb(255, 255, 255);
+border-top-left-radius:20px;
+border-bottom-left-radius:0px;
+border-top-right-radius:0px;
+border-bottom-right-radius:0px;
+background-color: rgb(43, 79, 102);
+}
+QToolButton#tBtnMute{
+font: 18pt &quot;微软雅黑&quot;;
+color: rgb(255, 255, 255);
+border-top-left-radius:0px;
+border-bottom-left-radius:0px;
+border-top-right-radius:0px;
+border-bottom-right-radius:0px;
+background-color: rgb(43, 79, 102);
+}
+QToolButton#tBtnError{
+font: 18pt &quot;微软雅黑&quot;;
+color: rgb(255, 255, 255);
+border-top-left-radius:0px;
+border-bottom-left-radius:0px;
+border-top-right-radius:0px;
+border-bottom-right-radius:0px;
+background-color: rgb(43, 79, 102);
+}
+QToolButton#tBtnAlarm{
+font: 18pt &quot;微软雅黑&quot;;
+color: rgb(255, 255, 255);
+border-top-left-radius:20px;
+border-bottom-left-radius:0px;
+border-top-right-radius:0px;
+border-bottom-right-radius:0px;
+background-color: rgb(43, 79, 102);
+}
+QToolButton#tBtnHead{
+font: 18pt &quot;微软雅黑&quot;;
+color: rgb(255, 255, 255);
+border-top-left-radius:0px;
+border-bottom-left-radius:0px;
+border-top-right-radius:0px;
+border-bottom-right-radius:0px;
+background-color: rgb(43, 79, 102);
+}
+QToolButton#tBtnTail{
+font: 18pt &quot;微软雅黑&quot;;
+color: rgb(255, 255, 255);
+border-top-left-radius:0px;
+border-bottom-left-radius:0px;
+border-top-right-radius:20px;
+border-bottom-right-radius:0px;
+background-color: rgb(43, 79, 102);
+}
+QToolButton#tBtnLast{
+font: 18pt &quot;微软雅黑&quot;;
+color: rgb(255, 255, 255);
+border-top-left-radius:0px;
+border-bottom-left-radius:0px;
+border-top-right-radius:0px;
+border-bottom-right-radius:0px;
+background-color: rgb(43, 79, 102);
+}
+QToolButton#tBtnNest{
+font: 18pt &quot;微软雅黑&quot;;
+color: rgb(255, 255, 255);
+border-top-left-radius:0px;
+border-bottom-left-radius:0px;
+border-top-right-radius:0px;
+border-bottom-right-radius:0px;
+background-color: rgb(43, 79, 102);
+}
+QToolButton:hover{
+font: 13pt &quot;微软雅黑&quot;;
+color:rgb(79, 229, 219);
+/*background-color: rgb(3, 127, 119);*/
+}
+QLabel{
+font: 14pt &quot;微软雅黑&quot;;
+color: rgb(255, 255, 255);
+}
+
+QLCDNumber{
+font: 12pt &quot;微软雅黑&quot;;
+color: rgb(80, 175, 185);
+border:2px solid white;
+border-color: rgb(79, 229, 219);
+border-radius:8px;
+}
+QPushButton{
+font: 14pt &quot;微软雅黑&quot;;
+color:white;
+width:50;
+height:30;
+border:1px solid;
+border-radius:4px;
+border-color: rgb(66, 109, 127);
+}
+QPushButton:pressed{
+font: 11pt &quot;微软雅黑&quot;;
+}
+</string>
+  </property>
+  <widget class="QLabel" name="label_15">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>140</y>
+     <width>91</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑</family>
+     <pointsize>14</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>数据状态：</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lb_netStatus">
+   <property name="geometry">
+    <rect>
+     <x>125</x>
+     <y>140</y>
+     <width>191</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑</family>
+     <pointsize>14</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+color: rgb(255, 255, 255);
+}</string>
+   </property>
+   <property name="text">
+    <string>正在连接网络.</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>5</x>
+     <y>115</y>
+     <width>1310</width>
+     <height>595</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+   <widget class="QToolButton" name="tBtnTail">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>850</x>
+      <y>20</y>
+      <width>90</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QToolButton:hover{
+font: 18pt &quot;微软雅黑&quot;;
+color:rgb(79, 229, 219);
+}</string>
+    </property>
+    <property name="text">
+     <string>末页</string>
+    </property>
+    <property name="icon">
+     <iconset resource="../image.qrc">
+      <normaloff>:/Image/tailPage.png</normaloff>:/Image/tailPage.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>25</width>
+      <height>25</height>
+     </size>
+    </property>
+    <property name="autoRepeatDelay">
+     <number>100</number>
+    </property>
+    <property name="autoRepeatInterval">
+     <number>50</number>
+    </property>
+    <property name="toolButtonStyle">
+     <enum>Qt::ToolButtonTextBesideIcon</enum>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="tBtnHead">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>20</y>
+      <width>90</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QToolButton:hover{
+font: 18pt &quot;微软雅黑&quot;;
+color:rgb(79, 229, 219);
+}</string>
+    </property>
+    <property name="text">
+     <string>首页</string>
+    </property>
+    <property name="icon">
+     <iconset resource="../image.qrc">
+      <normaloff>:/Image/headPage.png</normaloff>:/Image/headPage.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>25</width>
+      <height>25</height>
+     </size>
+    </property>
+    <property name="autoRepeatDelay">
+     <number>100</number>
+    </property>
+    <property name="autoRepeatInterval">
+     <number>50</number>
+    </property>
+    <property name="toolButtonStyle">
+     <enum>Qt::ToolButtonTextBesideIcon</enum>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="tBtnNest">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>760</x>
+      <y>20</y>
+      <width>90</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QToolButton:hover{
+font: 18pt &quot;微软雅黑&quot;;
+color:rgb(79, 229, 219);
+}</string>
+    </property>
+    <property name="text">
+     <string>下页</string>
+    </property>
+    <property name="icon">
+     <iconset resource="../image.qrc">
+      <normaloff>:/Image/arrow-down.png</normaloff>:/Image/arrow-down.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>25</width>
+      <height>25</height>
+     </size>
+    </property>
+    <property name="autoRepeatDelay">
+     <number>100</number>
+    </property>
+    <property name="autoRepeatInterval">
+     <number>50</number>
+    </property>
+    <property name="toolButtonStyle">
+     <enum>Qt::ToolButtonTextBesideIcon</enum>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="tBtnLast">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>20</y>
+      <width>90</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QToolButton:hover{
+font: 18pt &quot;微软雅黑&quot;;
+color:rgb(79, 229, 219);
+}</string>
+    </property>
+    <property name="text">
+     <string>上页</string>
+    </property>
+    <property name="icon">
+     <iconset resource="../image.qrc">
+      <normaloff>:/Image/arrow-up.png</normaloff>:/Image/arrow-up.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>25</width>
+      <height>25</height>
+     </size>
+    </property>
+    <property name="autoRepeatDelay">
+     <number>100</number>
+    </property>
+    <property name="autoRepeatInterval">
+     <number>50</number>
+    </property>
+    <property name="toolButtonStyle">
+     <enum>Qt::ToolButtonTextBesideIcon</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>70</y>
+      <width>1310</width>
+      <height>1</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="tBtnMute">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>20</y>
+      <width>90</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QToolButton:hover{
+font: 19pt &quot;楷体&quot;;
+color:rgb(79, 229, 219);
+}</string>
+    </property>
+    <property name="text">
+     <string>静音</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>:/Image/dev.ico</normaloff>:/Image/dev.ico</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>45</width>
+      <height>45</height>
+     </size>
+    </property>
+    <property name="autoRepeatDelay">
+     <number>100</number>
+    </property>
+    <property name="autoRepeatInterval">
+     <number>50</number>
+    </property>
+    <property name="toolButtonStyle">
+     <enum>Qt::ToolButtonTextBesideIcon</enum>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="tBtnReset">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>20</y>
+      <width>90</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QToolButton:hover{
+font: 19pt &quot;楷体&quot;;
+color:rgb(79, 229, 219);
+}</string>
+    </property>
+    <property name="text">
+     <string>复位</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>:/Image/dev.ico</normaloff>:/Image/dev.ico</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>45</width>
+      <height>45</height>
+     </size>
+    </property>
+    <property name="autoRepeatDelay">
+     <number>100</number>
+    </property>
+    <property name="autoRepeatInterval">
+     <number>50</number>
+    </property>
+    <property name="toolButtonStyle">
+     <enum>Qt::ToolButtonTextBesideIcon</enum>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="tBtnAlarm">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>20</y>
+      <width>90</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QToolButton:hover{
+font: 18pt &quot;微软雅黑&quot;;
+color:rgb(79, 229, 219);
+}</string>
+    </property>
+    <property name="text">
+     <string>报警</string>
+    </property>
+    <property name="icon">
+     <iconset resource="../image.qrc">
+      <normaloff>:/Image/alarmInfo.png</normaloff>:/Image/alarmInfo.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>25</width>
+      <height>25</height>
+     </size>
+    </property>
+    <property name="autoRepeatDelay">
+     <number>100</number>
+    </property>
+    <property name="autoRepeatInterval">
+     <number>50</number>
+    </property>
+    <property name="toolButtonStyle">
+     <enum>Qt::ToolButtonTextBesideIcon</enum>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="tBtnError">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>20</y>
+      <width>90</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QToolButton:hover{
+font: 18pt &quot;微软雅黑&quot;;
+color:rgb(79, 229, 219);
+}</string>
+    </property>
+    <property name="text">
+     <string>故障</string>
+    </property>
+    <property name="icon">
+     <iconset resource="../image.qrc">
+      <normaloff>:/Image/errorInfo.png</normaloff>:/Image/errorInfo.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>25</width>
+      <height>25</height>
+     </size>
+    </property>
+    <property name="autoRepeatDelay">
+     <number>100</number>
+    </property>
+    <property name="autoRepeatInterval">
+     <number>50</number>
+    </property>
+    <property name="toolButtonStyle">
+     <enum>Qt::ToolButtonTextBesideIcon</enum>
+    </property>
+   </widget>
+   <widget class="QScrollArea" name="scrollArea">
+    <property name="geometry">
+     <rect>
+      <x>5</x>
+      <y>75</y>
+      <width>1300</width>
+      <height>515</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="widgetResizable">
+     <bool>true</bool>
+    </property>
+    <widget class="QWidget" name="scrollAreaWidgetContents">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>1298</width>
+       <height>513</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_2">
+   <property name="geometry">
+    <rect>
+     <x>5</x>
+     <y>0</y>
+     <width>1310</width>
+     <height>120</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+   <widget class="QLCDNumber" name="lcdNb_tempSet">
+    <property name="geometry">
+     <rect>
+      <x>990</x>
+      <y>20</y>
+      <width>80</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="smallDecimalPoint">
+     <bool>false</bool>
+    </property>
+    <property name="digitCount">
+     <number>5</number>
+    </property>
+    <property name="segmentStyle">
+     <enum>QLCDNumber::Flat</enum>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdNb_leakBase">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>65</y>
+      <width>80</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="smallDecimalPoint">
+     <bool>false</bool>
+    </property>
+    <property name="digitCount">
+     <number>5</number>
+    </property>
+    <property name="segmentStyle">
+     <enum>QLCDNumber::Flat</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_222">
+    <property name="geometry">
+     <rect>
+      <x>595</x>
+      <y>20</y>
+      <width>20</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>楷体</family>
+      <pointsize>16</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 16pt &quot;楷体&quot;;</string>
+    </property>
+    <property name="text">
+     <string>℃</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_333">
+    <property name="geometry">
+     <rect>
+      <x>1075</x>
+      <y>20</y>
+      <width>20</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>楷体</family>
+      <pointsize>16</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 16pt &quot;楷体&quot;;</string>
+    </property>
+    <property name="text">
+     <string>℃</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_20">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>65</y>
+      <width>110</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>实时漏电值：</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdNb_address">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>20</y>
+      <width>106</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>文泉驿等宽微米黑</family>
+      <pointsize>9</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 9pt &quot;文泉驿等宽微米黑&quot;;
+color: rgb(80, 175, 185);
+border:2px solid white;
+border-color: rgb(79, 229, 219);
+border-radius:8px;
+</string>
+    </property>
+    <property name="smallDecimalPoint">
+     <bool>false</bool>
+    </property>
+    <property name="digitCount">
+     <number>6</number>
+    </property>
+    <property name="segmentStyle">
+     <enum>QLCDNumber::Flat</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_17">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>65</y>
+      <width>110</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>固有漏电值：</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_12">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>20</y>
+      <width>110</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>探测器编号：</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_23">
+    <property name="geometry">
+     <rect>
+      <x>1075</x>
+      <y>65</y>
+      <width>30</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>mA</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_14">
+    <property name="geometry">
+     <rect>
+      <x>835</x>
+      <y>65</y>
+      <width>30</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>mA</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_18">
+    <property name="geometry">
+     <rect>
+      <x>880</x>
+      <y>65</y>
+      <width>110</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>漏电设定值：</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdNb_leakSet">
+    <property name="geometry">
+     <rect>
+      <x>990</x>
+      <y>65</y>
+      <width>80</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="smallDecimalPoint">
+     <bool>false</bool>
+    </property>
+    <property name="digitCount">
+     <number>5</number>
+    </property>
+    <property name="segmentStyle">
+     <enum>QLCDNumber::Flat</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_21">
+    <property name="geometry">
+     <rect>
+      <x>355</x>
+      <y>65</y>
+      <width>30</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>mA</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_22">
+    <property name="geometry">
+     <rect>
+      <x>595</x>
+      <y>65</y>
+      <width>30</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>mA</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdNb_leakCur">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>65</y>
+      <width>80</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="smallDecimalPoint">
+     <bool>false</bool>
+    </property>
+    <property name="digitCount">
+     <number>5</number>
+    </property>
+    <property name="segmentStyle">
+     <enum>QLCDNumber::Flat</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_111">
+    <property name="geometry">
+     <rect>
+      <x>835</x>
+      <y>25</y>
+      <width>20</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>楷体</family>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 14pt &quot;楷体&quot;;</string>
+    </property>
+    <property name="text">
+     <string>℃</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdNb_leakAlarm">
+    <property name="geometry">
+     <rect>
+      <x>750</x>
+      <y>65</y>
+      <width>80</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="smallDecimalPoint">
+     <bool>false</bool>
+    </property>
+    <property name="digitCount">
+     <number>5</number>
+    </property>
+    <property name="segmentStyle">
+     <enum>QLCDNumber::Flat</enum>
+    </property>
+    <property name="intValue" stdset="0">
+     <number>0</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_11">
+    <property name="geometry">
+     <rect>
+      <x>880</x>
+      <y>20</y>
+      <width>110</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>温度设定值：</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdNb_tempCur">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>20</y>
+      <width>80</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="smallDecimalPoint">
+     <bool>false</bool>
+    </property>
+    <property name="digitCount">
+     <number>5</number>
+    </property>
+    <property name="segmentStyle">
+     <enum>QLCDNumber::Flat</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_9">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>20</y>
+      <width>110</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>温度报警值：</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_19">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>65</y>
+      <width>110</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>漏电报警值：</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_10">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>20</y>
+      <width>110</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>实时温度值：</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdNb_tempAlarm">
+    <property name="geometry">
+     <rect>
+      <x>750</x>
+      <y>20</y>
+      <width>80</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="smallDecimalPoint">
+     <bool>false</bool>
+    </property>
+    <property name="digitCount">
+     <number>5</number>
+    </property>
+    <property name="segmentStyle">
+     <enum>QLCDNumber::Flat</enum>
+    </property>
+    <property name="intValue" stdset="0">
+     <number>0</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>15</x>
+      <y>25</y>
+      <width>30</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+border:1px none;
+border-radius:15px;
+background-color: rgb(225, 225, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lb_errorNum">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>25</y>
+      <width>100</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+color: rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string>故障0个</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>15</x>
+      <y>70</y>
+      <width>30</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+border:1px none;
+border-radius:15px;
+	background-color: rgb(255, 0, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lb_alarmNum">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>65</y>
+      <width>100</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+color: rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string>报警0个</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_24">
+    <property name="geometry">
+     <rect>
+      <x>1115</x>
+      <y>14</y>
+      <width>20</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>模
+块
+地
+址</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lb_NodeAddr">
+    <property name="geometry">
+     <rect>
+      <x>1145</x>
+      <y>20</y>
+      <width>161</width>
+      <height>90</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 12pt &quot;楷体&quot;;
+color: rgb(80, 175, 185);
+border:2px solid white;
+border-color: rgb(79, 229, 219);
+border-radius:8px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::AutoText</enum>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+  <zorder>groupBox</zorder>
+  <zorder>groupBox_2</zorder>
+  <zorder>label_15</zorder>
+  <zorder>lb_netStatus</zorder>
+ </widget>
+ <resources>
+  <include location="../image.qrc"/>
+ </resources>
+ <connections/>
+</ui>

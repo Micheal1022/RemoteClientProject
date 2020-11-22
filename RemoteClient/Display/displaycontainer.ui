@@ -37,7 +37,7 @@
    </property>
    <property name="styleSheet">
     <string notr="true">QListWidget{
-font: 12pt &quot;楷体&quot;;
+font: 12pt &quot;微软雅黑&quot;;
 border:1px solid white;
 border-radius:8px;
 color: rgb(255, 255, 255);
@@ -51,7 +51,7 @@ background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:0, stop:0
  }
 
 QToolTip {
-font: 12pt &quot;文泉驿等宽微米黑&quot;;
+font: 12pt &quot;微软雅黑&quot;;
 color: rgb(255, 255, 255);
 width:60px;
 

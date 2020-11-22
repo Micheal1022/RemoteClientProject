@@ -1,6 +1,7 @@
 #include "displaycontainer.h"
 #include "ui_displaycontainer.h"
-#include "matrixdisplay.h"
+#include "efInfo.h"
+#include "pminfo.h"
 #include "udpthread.h"
 #include "SqlManager/sqlmanager.h"
 
@@ -46,47 +47,48 @@ void DisplayContainer::confContainer()
     qDeleteAll(m_threadList.begin(),m_threadList.end());
     m_threadList.clear();
 
-    for(int i = 0;i < nodeList.count();i++)
-    {
+    for (int i = 0;i < nodeList.count();i++) {
         QStringList hostInfo = nodeList.value(i);
         QString hostStr   = hostInfo.value(0);
         QString portStr   = hostInfo.value(1);
         QString nodeCount = hostInfo.value(2);
         QString addr      = hostInfo.value(4);
         quint16 port      = portStr.toUInt();
-        //现实界面
-        MatrixDisplay *matrixDisplay = new MatrixDisplay;
-        matrixDisplay->setNodeCount(nodeCount.toInt());
-        matrixDisplay->confHostAddr(hostStr);
-        ui->stackedWidgetNode->addWidget(matrixDisplay);
-        m_widgetList.append(ui->stackedWidgetNode->widget(i));
-
         //添加主机节点
         QListWidgetItem *item = new QListWidgetItem;
         m_itemList.append(item);
         item->setText(addr);
-//        item->setToolTip(addr);
-
         item->setIcon(QIcon(QPixmap(":/Image/normalDev.png")));
         item->setSizeHint(QSize(180,45));
         ui->listWidget->addItem(item);
-
+        //添加UDP通讯线程
         UdpThread *udpThread = new UdpThread;
         udpThread->initConf(QHostAddress(hostStr) ,port);
-
         QThread *thread = new QThread;
         m_threadList.append(thread);
         udpThread->moveToThread(thread);
-
-        connect(matrixDisplay,&MatrixDisplay::sigMute,udpThread,&UdpThread::slotBtnMute);
-        connect(matrixDisplay,&MatrixDisplay::sigReset,udpThread,&UdpThread::slotBtnReset);
-        connect(udpThread,&UdpThread::sigNodeData,matrixDisplay,&MatrixDisplay::slotNodeUpdate);
-
         connect(thread,&QThread::finished,udpThread,&UdpThread::deleteLater,Qt::DirectConnection);
         connect(thread,&QThread::finished,thread,&UdpThread::deleteLater,Qt::DirectConnection);
-        //connect();
-
         thread->start();
+
+        //现实界面
+        //EFInfo *pEFInfo = new EFInfo;
+        //pEFInfo->setNodeCount(nodeCount.toInt());
+        //pEFInfo->confHostAddr(hostStr);
+
+        PMInfo *pPMInfo = new PMInfo;
+        pPMInfo->setInfo(nodeCount.toInt(),hostStr);
+        ui->stackedWidgetNode->addWidget(pPMInfo);
+
+        //ui->stackedWidgetNode->addWidget(pEFInfo);
+        m_widgetList.append(ui->stackedWidgetNode->widget(i));
+
+        //connect(pEFInfo,&EFInfo::sigMute,udpThread,&UdpThread::slotBtnMute);
+        //connect(pEFInfo,&EFInfo::sigReset,udpThread,&UdpThread::slotBtnReset);
+        //connect(udpThread,&UdpThread::sigNodeData,pEFInfo,&EFInfo::slotNodeUpdate);
+
+        connect(udpThread,&UdpThread::sigNodeData,pPMInfo,&PMInfo::slotNodeUpdate);
+
     }
     if(ui->listWidget->count() != 0)
         ui->listWidget->setCurrentItem(ui->listWidget->item(0));

@@ -21,7 +21,7 @@ background-color: rgb(2, 80, 85);
 background-color: rgb(15, 41, 68);
 }
 QToolButton{
-font: 18pt &quot;楷体&quot;;
+font: 17pt &quot;微软雅黑&quot;;
 color: rgb(255, 255, 255);
 border:1px solid;
 border-radius:10px;
@@ -29,14 +29,14 @@ border-color: rgb(0, 0, 0);
 background-color: rgb(43, 79, 102);
 }
 QToolButton:hover{
-font: 17pt &quot;楷体&quot;;
+font: 17pt &quot;微软雅黑&quot;;
 color: rgb(255, 0, 0);
 color: rgb(0, 185, 185);
 /*background-color: rgb(3, 127, 119);*/
 }
 
 QPushButton{
-font: 14pt &quot;楷体&quot;;
+font: 14pt &quot;微软雅黑&quot;;
 width: 50px;
 height:35px;
 border:2px solid;
@@ -46,12 +46,12 @@ border-color: rgb(0, 170, 127);
 
 }
 QPushButton:pressed{
-font: 13pt &quot;楷体&quot;;
+font: 13pt &quot;微软雅黑&quot;;
 border-color: rgb(0, 170, 127);
 }
 
 QGroupBox{
-font: 14pt &quot;楷体&quot;;
+font: 14pt &quot;微软雅黑&quot;;
 border: 1px solid white;
 border-radius:8px;
 margin-top:10px;
@@ -62,11 +62,11 @@ subcontrol-origin: margin;
 left: 5px;
 }
 QLabel{
-font: 15pt &quot;楷体&quot;;
+font: 15pt &quot;微软雅黑&quot;;
 color: rgb(255, 255, 255);
 }
 QLineEdit{
-font: 13pt &quot;楷体&quot;;
+font: 13pt &quot;微软雅黑&quot;;
 color: rgb(255, 255, 255);
 border:2px solid ;
 border-color: rgb(0, 185, 185);
@@ -179,7 +179,7 @@ image: url(:/Image/checked.png);
     </property>
     <property name="font">
      <font>
-      <family>楷体</family>
+      <family>微软雅黑</family>
       <pointsize>13</pointsize>
       <weight>50</weight>
       <italic>false</italic>
@@ -251,7 +251,7 @@ image: url(:/Image/checked.png);
     </property>
     <property name="font">
      <font>
-      <family>楷体</family>
+      <family>微软雅黑</family>
       <pointsize>13</pointsize>
       <weight>50</weight>
       <italic>false</italic>
@@ -279,7 +279,7 @@ image: url(:/Image/checked.png);
     </property>
     <property name="font">
      <font>
-      <family>楷体</family>
+      <family>微软雅黑</family>
       <pointsize>15</pointsize>
       <weight>50</weight>
       <italic>false</italic>
@@ -301,7 +301,7 @@ image: url(:/Image/checked.png);
     </property>
     <property name="font">
      <font>
-      <family>楷体</family>
+      <family>微软雅黑</family>
       <pointsize>15</pointsize>
       <weight>50</weight>
       <italic>false</italic>
@@ -323,7 +323,7 @@ image: url(:/Image/checked.png);
     </property>
     <property name="font">
      <font>
-      <family>楷体</family>
+      <family>微软雅黑</family>
       <pointsize>15</pointsize>
       <weight>50</weight>
       <italic>false</italic>
@@ -345,7 +345,7 @@ image: url(:/Image/checked.png);
     </property>
     <property name="font">
      <font>
-      <family>楷体</family>
+      <family>微软雅黑</family>
       <pointsize>13</pointsize>
       <weight>50</weight>
       <italic>false</italic>
@@ -373,7 +373,7 @@ image: url(:/Image/checked.png);
     </property>
     <property name="font">
      <font>
-      <family>楷体</family>
+      <family>微软雅黑</family>
       <pointsize>15</pointsize>
       <weight>50</weight>
       <italic>false</italic>
@@ -395,7 +395,7 @@ image: url(:/Image/checked.png);
     </property>
     <property name="font">
      <font>
-      <family>楷体</family>
+      <family>微软雅黑</family>
       <pointsize>13</pointsize>
       <weight>50</weight>
       <italic>false</italic>

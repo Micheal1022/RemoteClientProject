@@ -14,16 +14,13 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QDialog{
-background-color: rgb(15, 41, 68);
-}
-QDialog#UserLogin{
-	background-color: rgb(15, 41, 66);
-	border:1px solid white;
-	border-radius:10px;
+   <string notr="true">QDialog#UserLogin{
+background-color: rgb(15, 41, 66);
+border:1px solid white;
+border-radius:10px;
 }
 QToolButton{
-font: 18pt &quot;楷体&quot;;
+font: 17pt &quot;微软雅黑&quot;;
 color: rgb(255, 255, 255);
 border:1px solid;
 border-radius:10px;
@@ -31,13 +28,13 @@ border-color: rgb(0, 0, 0);
 background-color: rgb(43, 79, 102);
 }
 QToolButton:hover{
-font: 17pt &quot;楷体&quot;;
+font: 17pt &quot;微软雅黑&quot;;
 color: rgb(255, 0, 0);
 color: rgb(0, 185, 185);
 /*background-color: rgb(3, 127, 119);*/
 }
 QGroupBox{
-font: 16pt &quot;楷体&quot;;
+font: 16pt &quot;微软雅黑&quot;;
 border: 1px none black;
 color: rgb(44, 44, 44);
 border-radius:20px;
@@ -55,25 +52,25 @@ color: rgb(255, 255, 255);
 }
 
 QLineEdit{
-font: 12pt &quot;楷体&quot;;
+font: 12pt &quot;微软雅黑&quot;;
 color: rgb(255, 255, 255);
 border:1px none rgb(79, 229, 219);
 background-color: rgb(255, 255, 255);
 background-color: rgb(15, 41, 68);
 }
 QComboBox {
-font: 14pt &quot;楷体&quot;;
+font: 14pt &quot;微软雅黑&quot;;
 color: rgb(255, 255, 255);
 border:1px solid rgb(53, 156, 212);
 background-color: rgb(15, 41, 68);
 }
 QComboBox QAbstractItemView::item{
-font: 14pt &quot;楷体&quot;;
+font: 14pt &quot;微软雅黑&quot;;
 color: rgb(255, 255, 255);
 height:30px;
 }
 QPushButton{
-font: 14pt &quot;楷体&quot;;
+font: 14pt &quot;微软雅黑&quot;;
 color:white;
 width:50;
 height:30;
@@ -82,7 +79,7 @@ border-radius:4px;
 border-color: rgb(66, 109, 127);
 }
 QPushButton:pressed{
-font: 11pt &quot;楷体&quot;;
+font: 11pt &quot;微软雅黑&quot;;
 }</string>
   </property>
   <widget class="QGroupBox" name="groupBox">
@@ -95,7 +92,7 @@ font: 11pt &quot;楷体&quot;;
     </rect>
    </property>
    <property name="title">
-    <string>用户登录                        </string>
+    <string>用户登录                                              </string>
    </property>
    <widget class="QLabel" name="lbUser">
     <property name="geometry">
@@ -140,8 +137,8 @@ font: 11pt &quot;楷体&quot;;
     </property>
     <property name="font">
      <font>
-      <family>楷体</family>
-      <pointsize>18</pointsize>
+      <family>微软雅黑</family>
+      <pointsize>17</pointsize>
       <weight>50</weight>
       <italic>false</italic>
       <bold>false</bold>
@@ -181,8 +178,8 @@ font: 11pt &quot;楷体&quot;;
     </property>
     <property name="font">
      <font>
-      <family>楷体</family>
-      <pointsize>18</pointsize>
+      <family>微软雅黑</family>
+      <pointsize>17</pointsize>
       <weight>50</weight>
       <italic>false</italic>
       <bold>false</bold>
@@ -219,7 +216,7 @@ font: 11pt &quot;楷体&quot;;
     </property>
     <property name="font">
      <font>
-      <family>楷体</family>
+      <family>微软雅黑</family>
       <pointsize>14</pointsize>
       <weight>50</weight>
       <italic>false</italic>

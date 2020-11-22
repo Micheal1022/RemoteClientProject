@@ -21,7 +21,7 @@ InfoHintDlg::~InfoHintDlg()
 
 void InfoHintDlg::initTalbeWidget(QTableWidget *tableWidget)
 {
-    QString styleStr = "QHeaderView::section{font: 13pt '楷体';background-color:rgb(53, 156, 212);"
+    QString styleStr = "QHeaderView::section{font: 13pt '微软雅黑';background-color:rgb(53, 156, 212);"
                        "color: black;border: 1px solid #6c6c6c;}";
 
     tableWidget->horizontalHeader()->setStyleSheet(styleStr);
@@ -37,7 +37,7 @@ void InfoHintDlg::initTalbeWidget(QTableWidget *tableWidget)
     tableWidget->setSelectionMode (QAbstractItemView::SingleSelection); //设置选择模式，选择单行
 
     QStringList headList;
-    headList<<tr("通道")<<tr("地址")<<tr("类型")<<tr("状态")<<tr("数值")<<tr("报警时间");
+    headList<<tr("通道")<<tr("地址")<<tr("类型")<<tr("状态")<<tr("数值")<<tr("记录时间");
     tableWidget->setColumnCount(headList.count());
     tableWidget->setHorizontalHeaderLabels(headList);
     tableWidget->horizontalHeader()->setFixedHeight(30);
@@ -54,21 +54,15 @@ void InfoHintDlg::initTalbeWidget(QTableWidget *tableWidget)
 
 void InfoHintDlg::initInfoHint(InfoHintDlg::InfoType infoType, QList<QStringList> infoList)
 {
-
-    if(infoType == InfoType::AlarmInfo)
-    {
+    if (infoType == InfoType::AlarmInfo) {
         ui->lbInfoNum->setText(QString("报警信息 ")+QString::number(infoList.count())+QString(" 条"));
         ui->groupBox->setTitle(QString("报警信息                                                                   "));
         infoListShow(ui->tableWidget,infoList);
-    }
-    else
-    {
+    } else {
         ui->lbInfoNum->setText(QString("故障信息 ")+QString::number(infoList.count())+QString(" 条"));
         ui->groupBox->setTitle(QString("故障信息                                                                   "));
         infoListShow(ui->tableWidget,infoList);
     }
-
-
 }
 
 void InfoHintDlg::infoListShow(QTableWidget *tableWidget, QList<QStringList> infoList)
@@ -78,7 +72,7 @@ void InfoHintDlg::infoListShow(QTableWidget *tableWidget, QList<QStringList> inf
     //获取数据列表
 
     tableWidget->setRowCount(infoList.count());
-    QFont ft("文泉驿等宽微米黑",12);
+    QFont ft("微软雅黑",12);
     QTableWidgetItem *item;
     for(int row = 0; row < infoList.count();row++)
     {

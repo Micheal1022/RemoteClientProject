@@ -21,40 +21,31 @@ UserLogin::~UserLogin()
 void UserLogin::confShow()
 {
     show();
-    if(m_state == true)
-    {
+    if (m_state == true) {
         ui->lineEditPwd->clear();
         ui->lineEditPwd->setEnabled(false);
         ui->cbBoxUserType->setEnabled(false);
-        ui->groupBox->setTitle(tr("用户退出                        "));
+        ui->groupBox->setTitle(tr("用户退出                                                                      "));
 
-    }
-    else
-    {
+    } else {
         ui->lineEditPwd->clear();
         ui->lineEditPwd->setEnabled(true);
         ui->cbBoxUserType->setEnabled(true);
-        ui->groupBox->setTitle(tr("用户登录                        "));
+        ui->groupBox->setTitle(tr("用户登录                                                                      "));
     }
 }
 
 void UserLogin::slotBtnOk()
 {
-    if(m_state == false)
-    {
-        if(ui->lineEditPwd->text() == QString(tr("123456")))
-        {
+    if (m_state == false) {
+        if (ui->lineEditPwd->text() == QString(tr("123456"))) {
             m_state = true;
             emit sigUserLoginOk(m_state);
             hide();
-        }
-        else
-        {
+        } else {
             QMessageBox::information(this,tr("系统提示"),tr("密码错误"),tr("关闭"));
         }
-    }
-    else
-    {
+    } else {
         m_state = false;
         emit sigUserLoginOk(m_state);
         hide();

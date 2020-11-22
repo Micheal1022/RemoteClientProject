@@ -17,6 +17,11 @@ HomePage::HomePage(QWidget *parent) :
     showFullScreen();
     initWidget();
     initConnect();
+    //QString str = "1-123\nVA3";
+    //int index = str.indexOf("\n");
+    //str = str.left(index);
+    //qDebug()<<"index : "<<index;
+    //qDebug()<<"str   : "<<str;
 
 
 }
@@ -67,10 +72,6 @@ void HomePage::slotSystemTimer()
 {
     QString systemTimeStr = QDateTime::currentDateTime().toString("yyyy年MM月dd日/hh:mm:ss  ");
     ui->lbSystemTime->setText(systemTimeStr);
-//    m_quitTimes++;
-//    if (m_quitTimes == QUITTIME) {
-//        QApplication::quit();
-//    }
 }
 
 void HomePage::slotBtnRecord()
