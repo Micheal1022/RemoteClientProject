@@ -251,12 +251,11 @@ QGroupBox::title {
 color: rgb(255, 255, 255);
 subcontrol-origin: margin;
 subcontrol-position: top left; /* position at the top center */
-padding: 0 3px;
-background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(28, 183, 200, 255), stop:1 rgba(0, 85, 127, 255));
+padding: 3px;
   }</string>
     </property>
     <property name="title">
-     <string>监控信息                                                                                                                                                  </string>
+     <string>监控信息</string>
     </property>
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="geometry">
@@ -331,7 +330,7 @@ font: 18pt &quot;微软雅黑&quot;;</string>
 color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
-      <string>电气火灾远程客户端</string>
+      <string>远程客户端软件</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>

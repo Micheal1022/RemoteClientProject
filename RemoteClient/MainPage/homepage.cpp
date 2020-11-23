@@ -14,15 +14,9 @@ HomePage::HomePage(QWidget *parent) :
     ui(new Ui::HomePage)
 {
     ui->setupUi(this);
-    showFullScreen();
+//    showFullScreen();
     initWidget();
     initConnect();
-    //QString str = "1-123\nVA3";
-    //int index = str.indexOf("\n");
-    //str = str.left(index);
-    //qDebug()<<"index : "<<index;
-    //qDebug()<<"str   : "<<str;
-
 
 }
 
@@ -74,22 +68,22 @@ void HomePage::slotSystemTimer()
     ui->lbSystemTime->setText(systemTimeStr);
 }
 
-void HomePage::slotBtnRecord()
-{
-    ui->stackedWidget->setCurrentIndex(2);
-    ui->groupBox->setTitle(QString("记录查询                                                                   "));
-}
-
 void HomePage::slotBtnMornitor()
 {
     ui->stackedWidget->setCurrentIndex(0);
-    ui->groupBox->setTitle(QString("监控信息                                                                   "));
+    ui->groupBox->setTitle(QString("监控信息"));
 }
 
 void HomePage::slotBtnSystemSet()
 {
     ui->stackedWidget->setCurrentIndex(1);
-    ui->groupBox->setTitle(QString("网络设置                                                                   "));
+    ui->groupBox->setTitle(QString("网络设置"));
+}
+
+void HomePage::slotBtnRecord()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+    ui->groupBox->setTitle(QString("记录查询"));
 }
 
 void HomePage::slotBtnSystemInfo()
@@ -109,12 +103,9 @@ void HomePage::slotBtnUserLogin()
 
 void HomePage::slotUserLogin(bool state)
 {
-    if(state == true)
-    {
+    if (state == true) {
         ui->tBtnUser->setText(tr("用户退出"));
-    }
-    else
-    {
+    } else {
         ui->tBtnUser->setText(tr("用户登录"));
     }
     ui->tBtnClose->setEnabled(state);

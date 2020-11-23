@@ -91,7 +91,7 @@ private:
     QButtonGroup *m_tBtnGroup;
     QList<PmBtnUnit> m_PmBtnUnitList;
 
-    QList<QStringList> m_alarmList;
+    QList<QStringList> m_powerList;
     QList<QStringList> m_errorList;
     QList<QMap<int ,PmBtnUnit>> m_btnUnitList;
 private:
@@ -102,6 +102,9 @@ private:
     void confPmBtn();
     int getPageCount(int nodeCount);
     void showCurNodeValue(int index);
+    QStringList addStringList(int pass, int canId, int type, int state, QString alarmTime);
+    void delStringList(QList<QStringList> stringList,int pass,int canId,int state);
+
 signals:
 
     void sigSetValue(int);

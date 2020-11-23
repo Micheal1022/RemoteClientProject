@@ -21,7 +21,7 @@ private:
     Record *m_record;
     HomePage *m_homePage;
     SystemSet *m_systemSet;
-    SystemInfo *m_systemInfo;
+//    SystemInfo *m_systemInfo;
     DisplayContainer *m_displayContaier;
 signals:
 

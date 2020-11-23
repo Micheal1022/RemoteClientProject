@@ -11,6 +11,7 @@
 #include <QTextCodec>
 #include "infohintdlg.h"
 #include "SqlManager/sqlmanager.h"
+#include "MsgBox/msgbox.h"
 
 
 #define COLUMNSIZE      15
@@ -25,7 +26,7 @@
 #define OVERVOLTAGE     0x03//过压
 #define UNDERVOLTAGE    0x04//欠压
 #define OFFLINE         0x05//通讯中断
-#define INTERRUPTION    0x06//供电中断
+#define POWERLOST       0x06//供电中断
 
 
 #define N_V3            0x02//双路三相电压型
@@ -78,17 +79,21 @@ void PMInfo::setInfo(int nodeCount, QString hostAddr)
     m_hostAddr  = hostAddr;
     m_nodeCount = nodeCount;
     m_pageCount = getPageCount(nodeCount) - 1;
-    if (m_pageCount == 0) {
-        ui->tBtnHead->setEnabled(false);
-        ui->tBtnLast->setEnabled(false);
-        ui->tBtnTail->setEnabled(false);
-        ui->tBtnNest->setEnabled(false);
-    } else  {
-        ui->tBtnHead->setEnabled(false);
-        ui->tBtnLast->setEnabled(false);
-        ui->tBtnTail->setEnabled(true);
-        ui->tBtnNest->setEnabled(true);
-    }
+    //    if (m_pageCount == 0) {
+    //        ui->tBtnHead->setEnabled(false);
+    //        ui->tBtnLast->setEnabled(false);
+    //        ui->tBtnTail->setEnabled(false);
+    //        ui->tBtnNest->setEnabled(false);
+    //    } else  {
+    //        ui->tBtnHead->setEnabled(false);
+    //        ui->tBtnLast->setEnabled(false);
+    //        ui->tBtnTail->setEnabled(true);
+    //        ui->tBtnNest->setEnabled(true);
+    //    }
+    ui->tBtnHead->setVisible(false);
+    ui->tBtnLast->setVisible(false);
+    ui->tBtnTail->setVisible(false);
+    ui->tBtnNest->setVisible(false);
     initWidget();
 
 }
@@ -100,14 +105,42 @@ PMInfo::~PMInfo()
 
 void PMInfo::initWidget()
 {
+    ui->lb_netStatus->setText(tr("正在等待接收数据."));
+    ui->lb_netStatus->setStyleSheet(tr("color:rgb(255,255,255)"));
+    m_currentIndex = 0;
+    m_curPass    = 0;
+    m_curCanId   = 0;
+    m_curPage    = 0;
+    m_pageCount  = 1;
+    m_errorCount = 0;
+    m_powerCount = 0;
+    m_connTimes  = 0;
+    m_connState  = 0;
+
     dataClean(); //清空数据
     initLayout();//初始化布局
     confPmBtn(); //配置按钮
-    m_styleSheet  = "font:13pt '微软雅黑';color: rgb(0, 0, 0);border:1px solid rgb(0, 0, 0);border-radius:10px;";
-    m_redStyle    = m_styleSheet+"background-color: rgb(255, 0,   0);";
-    m_greenStyle  = m_styleSheet+"background-color: rgb(67,  182, 25);";
-    m_yellowStyle = m_styleSheet+"background-color: rgb(255, 255, 0);";
-    m_greyStyle   = m_styleSheet+"background-color: rgb(117, 117, 117);";
+
+    m_redStyle    = "QToolButton{font:14pt '微软雅黑';color: rgb(0,80,117);border:1px solid rgb(0, 0, 0);border-radius:10px;background-color: rgb(255, 0,   0);}";
+    m_greenStyle  = "QToolButton{font:14pt '微软雅黑';color: rgb(0,80,117);border:1px solid rgb(0, 0, 0);border-radius:10px;background-color: rgb(67,  182, 25);}";
+    m_yellowStyle = "QToolButton{font:14pt '微软雅黑';color: rgb(0,80,117);border:1px solid rgb(0, 0, 0);border-radius:10px;background-color: rgb(255, 255, 0);}";
+    m_greyStyle   = "QToolButton{font:14pt '微软雅黑';color: rgb(0,80,117);border:1px solid rgb(0, 0, 0);border-radius:10px;background-color: rgb(117, 117, 117);}";
+
+
+    connect(ui->tBtnAlarm,&QToolButton::clicked,this,&PMInfo::slotBtnPowerInfo);
+    connect(ui->tBtnError,&QToolButton::clicked,this,&PMInfo::slotBtnErrorInfo);
+    connect(ui->tBtnHead, &QToolButton::clicked,this,&PMInfo::slotBtnHeadPage);
+    connect(ui->tBtnTail, &QToolButton::clicked,this,&PMInfo::slotBtnTailPage);
+    connect(ui->tBtnLast, &QToolButton::clicked,this,&PMInfo::slotBtnLastPage);
+    connect(ui->tBtnNest, &QToolButton::clicked,this,&PMInfo::slotBtnNestPage);
+
+
+    connect(ui->tBtnReset,&QToolButton::clicked,this,&PMInfo::slotBtnReset);
+    connect(this,SIGNAL(sigSetValue(int)),ui->scrollArea->verticalScrollBar(),SLOT(setValue(int)));
+
+    m_timer = new QTimer;
+    connect(m_timer,&QTimer::timeout,this,&PMInfo::slotTimeOut);
+    m_timer->start(300);
 }
 
 void PMInfo::dataClean()
@@ -136,9 +169,9 @@ void PMInfo::initLayout()
 
     m_gridLayout = new QGridLayout();
     m_gridLayout->setHorizontalSpacing(15);
-    m_gridLayout->setVerticalSpacing(14);
+    m_gridLayout->setVerticalSpacing(11);
     m_gridLayout->setObjectName(QStringLiteral("m_gridLayout"));
-    m_gridLayout->setContentsMargins(15, 5, 5, 5);
+    m_gridLayout->setContentsMargins(5, 5, 5, 5);
 
     horizontalLayout->addLayout(m_gridLayout);
     QSpacerItem *horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
@@ -238,6 +271,97 @@ void PMInfo::showCurNodeValue(int index)
     }
 }
 
+QStringList PMInfo::addStringList(int pass, int canId, int type, int state, QString alarmTime)
+{
+    QString passStr = QString::number(pass);
+    QString canIdStr= QString::number(canId);
+
+    QString typeStr;
+    switch (type) {
+    case N_V3:
+        typeStr = QString("V3");
+        break;
+    case N_V:
+        typeStr = QString("V");
+        break;
+    case N_VA3:
+        typeStr = QString("VA3");
+        break;
+    case N_VA:
+        typeStr = QString("VA");
+        break;
+    case N_VN3:
+        typeStr = QString("VN3");
+        break;
+    case N_VAN3:
+        typeStr = QString("VAN3");
+        break;
+    case N_2VAN3:
+        typeStr = QString("2VAN3");
+        break;
+    }
+
+    QString stateStr;
+    switch (state) {
+    case OFFLINE:
+        stateStr = QString("通信故障");
+        break;
+    case MISPHASE:
+        stateStr = QString("缺相故障");
+        break;
+    case OVERCURRENT:
+        stateStr = QString("过流故障");
+        break;
+    case OVERVOLTAGE:
+        stateStr = QString("过压故障");
+        break;
+    case UNDERVOLTAGE:
+        stateStr = QString("欠压故障");
+        break;
+    case POWERLOST:
+        stateStr = QString("电源中断");
+        break;
+    }
+
+    QStringList strList;
+    strList<<passStr<<canIdStr<<typeStr<<stateStr<<alarmTime;
+
+    return strList;
+}
+
+void PMInfo::delStringList(QList<QStringList> stringList, int pass, int canId, int state)
+{
+    QString passStr = QString::number(pass);
+    QString canIdStr= QString::number(canId);
+    QString stateStr;
+    switch (state) {
+    case OFFLINE:
+        stateStr = QString("通信故障");
+        break;
+    case MISPHASE:
+        stateStr = QString("缺相故障");
+        break;
+    case OVERCURRENT:
+        stateStr = QString("过流故障");
+        break;
+    case OVERVOLTAGE:
+        stateStr = QString("过压故障");
+        break;
+    case UNDERVOLTAGE:
+        stateStr = QString("欠压故障");
+        break;
+    case POWERLOST:
+        stateStr = QString("电源中断");
+        break;
+    }
+
+    for (int index = 0;index < stringList.count();index++) {
+        if (stringList.at(index).at(0) == passStr && stringList.at(index).at(1) ==canIdStr && stringList.at(index).at(3) == stateStr) {
+            stringList.removeAt(index);
+        }
+    }
+}
+
 void PMInfo::slotBtnClick(int index)
 {
     dataClean();
@@ -250,12 +374,16 @@ void PMInfo::slotBtnClick(int index)
 
 void PMInfo::slotBtnPowerInfo()
 {
-
+    InfoHintDlg infoHintDlg(this);
+    infoHintDlg.initInfoHint(InfoHintDlg::PowerInfo,m_powerList);
+    infoHintDlg.exec();
 }
 
 void PMInfo::slotBtnErrorInfo()
 {
-
+    InfoHintDlg infoHintDlg(this);
+    infoHintDlg.initInfoHint(InfoHintDlg::PowerError,m_errorList);
+    infoHintDlg.exec();
 }
 
 void PMInfo::slotTimeOut()
@@ -296,14 +424,14 @@ void PMInfo::slotTimeOut()
 
 void PMInfo::slotBtnReset()
 {
-    if (QMessageBox::question(this,tr("复位操作"),tr("你确定要主机复位吗?"),tr("取消"),tr("确定"))) {
+    if (MsgBox::showQuestion(this,tr("复位操作"),tr("你确定要主机复位吗?"),tr("取消"),tr("确定"))) {
         dataClean();
         m_powerCount = 0;
         m_errorCount = 0;
-        m_alarmList.clear();
+        m_powerList.clear();
         m_errorList.clear();
-        ui->lb_alarmNum->setText(QString("报警")+QString::number(m_powerCount)+QString("个"));
-        ui->lb_errorNum->setText(QString("故障")+QString::number(m_errorCount)+QString("个"));
+        ui->lcdNb_NodeError->display(0);
+        ui->lcdNb_PowerLost->display(0);
 
         for (int ind = 0; ind < m_tBtnGroup->buttons().size();ind++) {
             m_tBtnGroup->button(ind)->setStyleSheet(m_greenStyle);
@@ -451,11 +579,11 @@ void PMInfo::slotNodeUpdate(QByteArray byteArray)
             m_PmBtnUnitList[pIndex].m_powerLostFlag = true;
         }
         if (m_PmBtnUnitList[pIndex].m_offLineFlag      == false &&
-            m_PmBtnUnitList[pIndex].m_misphaseFlag     == false &&
-            m_PmBtnUnitList[pIndex].m_overCurrentFlag  == false &&
-            m_PmBtnUnitList[pIndex].m_overVoltageFlag  == false &&
-            m_PmBtnUnitList[pIndex].m_underVoltageFlag == false &&
-            m_PmBtnUnitList[pIndex].m_powerLostFlag    == false)
+                m_PmBtnUnitList[pIndex].m_misphaseFlag     == false &&
+                m_PmBtnUnitList[pIndex].m_overCurrentFlag  == false &&
+                m_PmBtnUnitList[pIndex].m_overVoltageFlag  == false &&
+                m_PmBtnUnitList[pIndex].m_underVoltageFlag == false &&
+                m_PmBtnUnitList[pIndex].m_powerLostFlag    == false)
         {
             m_PmBtnUnitList[pIndex].m_normalFlag = true;
         }
@@ -478,6 +606,8 @@ void PMInfo::slotNodeUpdate(QByteArray byteArray)
             QSqlDatabase db = SqlManager::openConnection();
             SqlManager::insertAlarmRecord(db,m_hostAddr,pPass,pCanID,pType,pState,0,pCurrentTime);
             SqlManager::closeConnection(db);
+            //电源中断列表
+            m_powerList.append(addStringList(pPass,pCanID,pType,pState,QDateTime::currentDateTime().toString("yyyy年MM月dd日 hh:mm:ss")));
         }
         break;
     case OVERCURRENT:
@@ -487,6 +617,8 @@ void PMInfo::slotNodeUpdate(QByteArray byteArray)
             QSqlDatabase db = SqlManager::openConnection();
             SqlManager::insertAlarmRecord(db,m_hostAddr,pPass,pCanID,pType,pState,0,pCurrentTime);
             SqlManager::closeConnection(db);
+            //电源中断列表
+            m_powerList.append(addStringList(pPass,pCanID,pType,pState,QDateTime::currentDateTime().toString("yyyy年MM月dd日 hh:mm:ss")));
         }
         break;
     case OVERVOLTAGE:
@@ -496,6 +628,8 @@ void PMInfo::slotNodeUpdate(QByteArray byteArray)
             QSqlDatabase db = SqlManager::openConnection();
             SqlManager::insertAlarmRecord(db,m_hostAddr,pPass,pCanID,pType,pState,0,pCurrentTime);
             SqlManager::closeConnection(db);
+            //电源中断列表
+            m_powerList.append(addStringList(pPass,pCanID,pType,pState,QDateTime::currentDateTime().toString("yyyy年MM月dd日 hh:mm:ss")));
         }
         break;
     case UNDERVOLTAGE:
@@ -505,15 +639,19 @@ void PMInfo::slotNodeUpdate(QByteArray byteArray)
             QSqlDatabase db = SqlManager::openConnection();
             SqlManager::insertAlarmRecord(db,m_hostAddr,pPass,pCanID,pType,pState,0,pCurrentTime);
             SqlManager::closeConnection(db);
+            //电源中断列表
+            m_powerList.append(addStringList(pPass,pCanID,pType,pState,QDateTime::currentDateTime().toString("yyyy年MM月dd日 hh:mm:ss")));
         }
         break;
-    case INTERRUPTION:
+    case POWERLOST:
         if (m_PmBtnUnitList[pIndex].m_powerLostFlag == false) {
             m_powerCount++;
             m_PmBtnUnitList[pIndex].m_powerLostFlag = true;
             QSqlDatabase db = SqlManager::openConnection();
             SqlManager::insertAlarmRecord(db,m_hostAddr,pPass,pCanID,pType,pState,0,pCurrentTime);
             SqlManager::closeConnection(db);
+            //电源中断列表
+            m_powerList.append(addStringList(pPass,pCanID,pType,pState,QDateTime::currentDateTime().toString("yyyy年MM月dd日 hh:mm:ss")));
         }
         break;
     }

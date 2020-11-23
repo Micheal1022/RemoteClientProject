@@ -147,6 +147,27 @@ bool SqlManager::insertAlarmRecord(QSqlDatabase db, QString host,int pass,int ca
     return true;
 }
 
+bool SqlManager::insertErrorRecord(QSqlDatabase db, QString host, int pass, int canId, int nodeType, int nodeState, int alarmTime)
+{
+    QString passStr       = QString::number(pass);
+    QString canIdStr      = QString::number(canId);
+    QString nodeTypeStr   = QString::number(nodeType);
+    QString nodeStsStr    = QString::number(nodeState);
+    QString alarmTimeStr  = QString::number(alarmTime);
+    //QString nodeAddress;
+    QString sql = "insert into RECORD values(";
+
+    sql += "'"+host+"',"+passStr+","+canIdStr+","+nodeTypeStr+","+nodeStsStr+","+alarmTimeStr+");";
+    QSqlQuery query(db);
+    //qDebug()<<"sql : "<<sql;
+    if (!query.exec(sql)) {
+        return false;
+    }
+    query.finish();
+    query.clear();
+    return true;
+}
+
 SqlManager &SqlManager::getInstance()
 {
     if (nullptr == instance)

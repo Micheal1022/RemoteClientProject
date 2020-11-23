@@ -6,12 +6,14 @@ INPUT(
 ./object_dir\guimanager.o
 ./object_dir\record.o
 ./object_dir\systemset.o
-./object_dir\systeminfo.o
 ./object_dir\sqlmanager.o
 ./object_dir\udpthread.o
 ./object_dir\infohintdlg.o
 ./object_dir\userlogin.o
 ./object_dir\pminfo.o
+./object_dir\infobox.o
+./object_dir\msgbox.o
+./object_dir\questbox.o
 ./object_dir\qrc_image.o
 ./object_dir\moc_homepage.o
 ./object_dir\moc_displaycontainer.o
@@ -19,9 +21,10 @@ INPUT(
 ./object_dir\moc_guimanager.o
 ./object_dir\moc_record.o
 ./object_dir\moc_systemset.o
-./object_dir\moc_systeminfo.o
 ./object_dir\moc_udpthread.o
 ./object_dir\moc_infohintdlg.o
 ./object_dir\moc_userlogin.o
 ./object_dir\moc_pminfo.o
+./object_dir\moc_infobox.o
+./object_dir\moc_questbox.o
 );

@@ -50,7 +50,7 @@ color: rgb(255, 255, 255);
 subcontrol-origin: margin;
 subcontrol-position: top left; /* position at the top center */
 padding: 0 3px;
-background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(28, 183, 200, 255), stop:1 rgba(0, 85, 127, 255));
+
 }
 QLabel{
 font: 14pt &quot;微软雅黑&quot;;

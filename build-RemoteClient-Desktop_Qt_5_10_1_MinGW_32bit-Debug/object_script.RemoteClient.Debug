@@ -6,7 +6,6 @@ INPUT(
 ./object_dir\guimanager.o
 ./object_dir\record.o
 ./object_dir\systemset.o
-./object_dir\systeminfo.o
 ./object_dir\sqlmanager.o
 ./object_dir\udpthread.o
 ./object_dir\infohintdlg.o
@@ -19,7 +18,6 @@ INPUT(
 ./object_dir\moc_guimanager.o
 ./object_dir\moc_record.o
 ./object_dir\moc_systemset.o
-./object_dir\moc_systeminfo.o
 ./object_dir\moc_udpthread.o
 ./object_dir\moc_infohintdlg.o
 ./object_dir\moc_userlogin.o

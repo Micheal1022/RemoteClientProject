@@ -6,7 +6,7 @@ InfoHintDlg::InfoHintDlg(QWidget *parent) :
     ui(new Ui::InfoHintDlg)
 {
     ui->setupUi(this);
-    initTalbeWidget(ui->tableWidget);
+
     setWindowFlags(Qt::FramelessWindowHint|Qt::Dialog);
     setModal(true);
 
@@ -19,7 +19,8 @@ InfoHintDlg::~InfoHintDlg()
     delete ui;
 }
 
-void InfoHintDlg::initTalbeWidget(QTableWidget *tableWidget)
+
+void InfoHintDlg::initTalbeWidget(QTableWidget *tableWidget, InfoHintDlg::InfoType infoType)
 {
     QString styleStr = "QHeaderView::section{font: 13pt '微软雅黑';background-color:rgb(53, 156, 212);"
                        "color: black;border: 1px solid #6c6c6c;}";
@@ -37,31 +38,52 @@ void InfoHintDlg::initTalbeWidget(QTableWidget *tableWidget)
     tableWidget->setSelectionMode (QAbstractItemView::SingleSelection); //设置选择模式，选择单行
 
     QStringList headList;
-    headList<<tr("通道")<<tr("地址")<<tr("类型")<<tr("状态")<<tr("数值")<<tr("记录时间");
-    tableWidget->setColumnCount(headList.count());
-    tableWidget->setHorizontalHeaderLabels(headList);
-    tableWidget->horizontalHeader()->setFixedHeight(30);
-    tableWidget->verticalHeader()->setFixedWidth(40);
-
-    tableWidget->setColumnWidth(0,100);
-    tableWidget->setColumnWidth(1,100);
-    tableWidget->setColumnWidth(2,100);
-    tableWidget->setColumnWidth(3,100);
-    tableWidget->setColumnWidth(4,100);
-    tableWidget->setColumnWidth(5,280);
-
+    if (infoType == InfoType::PowerInfo || infoType == InfoType::PowerError) {
+        headList<<tr("通道")<<tr("地址")<<tr("类型")<<tr("状态")<<tr("记录时间");
+        tableWidget->setColumnCount(headList.count());
+        tableWidget->setHorizontalHeaderLabels(headList);
+        tableWidget->horizontalHeader()->setFixedHeight(30);
+        tableWidget->verticalHeader()->setFixedWidth(40);
+        tableWidget->setColumnWidth(0,120);
+        tableWidget->setColumnWidth(1,120);
+        tableWidget->setColumnWidth(2,120);
+        tableWidget->setColumnWidth(3,140);
+        tableWidget->setColumnWidth(4,200);
+    } else {
+        headList<<tr("通道")<<tr("地址")<<tr("类型")<<tr("状态")<<tr("数值")<<tr("记录时间");
+        tableWidget->setColumnCount(headList.count());
+        tableWidget->setHorizontalHeaderLabels(headList);
+        tableWidget->horizontalHeader()->setFixedHeight(30);
+        tableWidget->verticalHeader()->setFixedWidth(40);
+        tableWidget->setColumnWidth(0,100);
+        tableWidget->setColumnWidth(1,100);
+        tableWidget->setColumnWidth(2,100);
+        tableWidget->setColumnWidth(3,100);
+        tableWidget->setColumnWidth(4,100);
+        tableWidget->setColumnWidth(5,280);
+    }
 }
 
 void InfoHintDlg::initInfoHint(InfoHintDlg::InfoType infoType, QList<QStringList> infoList)
 {
     if (infoType == InfoType::AlarmInfo) {
         ui->lbInfoNum->setText(QString("报警信息 ")+QString::number(infoList.count())+QString(" 条"));
-        ui->groupBox->setTitle(QString("报警信息                                                                   "));
+        ui->groupBox->setTitle(QString("报警信息"));
         infoListShow(ui->tableWidget,infoList);
-    } else {
+    } else if (infoType == InfoType::ErrorInfo) {
         ui->lbInfoNum->setText(QString("故障信息 ")+QString::number(infoList.count())+QString(" 条"));
-        ui->groupBox->setTitle(QString("故障信息                                                                   "));
+        ui->groupBox->setTitle(QString("故障信息"));
         infoListShow(ui->tableWidget,infoList);
+    } else if (infoType == InfoType::PowerInfo) {
+        ui->lbInfoNum->setText(QString("电源中断 ")+QString::number(infoList.count())+QString(" 条"));
+        ui->groupBox->setTitle(QString("电源中断"));
+        infoListShow(ui->tableWidget,infoList);
+        initTalbeWidget(ui->tableWidget,infoType);
+    } else if (infoType == InfoType::PowerError) {
+        ui->lbInfoNum->setText(QString("电源故障 ")+QString::number(infoList.count())+QString(" 条"));
+        ui->groupBox->setTitle(QString("电源故障"));
+        infoListShow(ui->tableWidget,infoList);
+        initTalbeWidget(ui->tableWidget,infoType);
     }
 }
 
@@ -74,12 +96,10 @@ void InfoHintDlg::infoListShow(QTableWidget *tableWidget, QList<QStringList> inf
     tableWidget->setRowCount(infoList.count());
     QFont ft("微软雅黑",12);
     QTableWidgetItem *item;
-    for(int row = 0; row < infoList.count();row++)
-    {
+    for (int row = 0; row < infoList.count();row++) {
         QStringList itemStr = infoList.at(row);
         //tableWidget->setRowHeight(row,27);
-        for(int column = 0;column < columnCount;column++)
-        {
+        for (int column = 0;column < columnCount;column++) {
             item = new QTableWidgetItem;
             item->setFont(ft);
             item->setTextAlignment(Qt::AlignCenter);

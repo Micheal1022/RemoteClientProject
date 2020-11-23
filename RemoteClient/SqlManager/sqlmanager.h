@@ -47,6 +47,7 @@ public:
     static bool delAllData(QSqlDatabase db,const QString &sqlQuery);
     static bool delelteRecordItem(QSqlDatabase db, uint pass, uint canId,uint nodeType,uint nodeSts,uint alarmTime);
     static bool insertAlarmRecord(QSqlDatabase db, QString host, int pass, int canId, int nodeType, int nodeSts, int alarmValue, int alarmTime);
+    static bool insertErrorRecord(QSqlDatabase db, QString host, int pass, int canId, int nodeType, int nodeState, int alarmTime);
 
 
 private:

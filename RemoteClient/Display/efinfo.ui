@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1320</width>
-    <height>710</height>
+    <height>720</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -203,7 +203,7 @@ color: rgb(255, 255, 255);
      <x>5</x>
      <y>115</y>
      <width>1310</width>
-     <height>595</height>
+     <height>600</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -556,11 +556,50 @@ color:rgb(79, 229, 219);
       <x>5</x>
       <y>75</y>
       <width>1300</width>
-      <height>515</height>
+      <height>520</height>
      </rect>
     </property>
     <property name="focusPolicy">
      <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QScrollBar:vertical{
+width:20px;
+background:rgba(0,0,0,0%);
+margin:0px,0px,0px,0px;
+padding-top:25px;   
+padding-bottom:25px;    
+}
+QScrollBar::handle:vertical{
+width:10px;
+background:rgba(0,0,0,25%);
+background:rgb(0,50,80);
+border-radius:5px;
+min-height:20px;
+}
+QScrollBar::handle:vertical:hover{
+width:10px;
+background:rgba(0,50,80,80%);
+border-radius:5px;
+min-height:20;
+}
+QDateTimeEdit{
+font: 18pt &quot;微软雅黑&quot;;
+border-radius:5px;
+border:2px solid rgb(0, 50, 80);
+}
+QDateTimeEdit::up-button{
+top:2px;
+right:2px;
+width: 30px;
+height: 26px;				
+}
+QDateTimeEdit::down-button{
+bottom:2px;
+right:2px;
+width: 30px;
+height: 26px;				
+}</string>
     </property>
     <property name="verticalScrollBarPolicy">
      <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -577,7 +616,7 @@ color:rgb(79, 229, 219);
        <x>0</x>
        <y>0</y>
        <width>1298</width>
-       <height>513</height>
+       <height>518</height>
       </rect>
      </property>
     </widget>

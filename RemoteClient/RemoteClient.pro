@@ -8,6 +8,9 @@ QT       += core gui sql network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+
+
+
 # 版本信息
 VERSION = 1.0.0
 ## 图标
@@ -52,12 +55,15 @@ SOURCES += \
     MainPage/guimanager.cpp \
     Record/record.cpp \
     SystemSet/systemset.cpp \
-    SystemInfo/systeminfo.cpp \
+#    SystemInfo/systeminfo.cpp \
     SqlManager/sqlmanager.cpp \
     Display/udpthread.cpp \
     Display/infohintdlg.cpp \
     UserLogin/userlogin.cpp \
-    Display/pminfo.cpp
+    Display/pminfo.cpp \
+    MsgBox/infobox.cpp \
+    MsgBox/msgbox.cpp \
+    MsgBox/questbox.cpp
 
 HEADERS += \
     MainPage/homepage.h \
@@ -66,12 +72,15 @@ HEADERS += \
     MainPage/guimanager.h \
     Record/record.h \
     SystemSet/systemset.h \
-    SystemInfo/systeminfo.h \
+#    SystemInfo/systeminfo.h \
     SqlManager/sqlmanager.h \
     Display/udpthread.h \
     Display/infohintdlg.h \
     UserLogin/userlogin.h \
-    Display/pminfo.h
+    Display/pminfo.h \
+    MsgBox/infobox.h \
+    MsgBox/msgbox.h \
+    MsgBox/questbox.h
 
 FORMS += \
     MainPage/homepage.ui \
@@ -79,10 +88,12 @@ FORMS += \
     Display/efinfo.ui \
     Record/record.ui \
     SystemSet/systemset.ui \
-    SystemInfo/systeminfo.ui \
+#    SystemInfo/systeminfo.ui \
     Display/infohintdlg.ui \
     UserLogin/userlogin.ui \
-    Display/pminfo.ui
+    Display/pminfo.ui \
+    MsgBox/infobox.ui \
+    MsgBox/questbox.ui
 
 RESOURCES += \
     image.qrc

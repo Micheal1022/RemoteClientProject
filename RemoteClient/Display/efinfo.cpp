@@ -173,7 +173,7 @@ void EFInfo::initLayout()
 
     gridLayout = new QGridLayout();
     gridLayout->setHorizontalSpacing(15);
-    gridLayout->setVerticalSpacing(14);
+    gridLayout->setVerticalSpacing(11);
     gridLayout->setObjectName(QStringLiteral("gridLayout"));
     gridLayout->setContentsMargins(15, 5, 5, 5);
 
@@ -194,15 +194,13 @@ void EFInfo::initLayout()
 void EFInfo::confMatrixBtn()
 {
     tBtnUnitInfoList.clear();
-    while(gridLayout->count() != 0)
-    {
+    while (gridLayout->count() != 0) {
         QWidget *w = gridLayout->takeAt(0)->widget();
         gridLayout->removeWidget(w);
         delete w;
     }
 
-    for(int ind = 0;ind < m_nodeCount;ind++)
-    {
+    for (int ind = 0;ind < m_nodeCount;ind++) {
         QToolButton *tBtn = new QToolButton(ui->scrollAreaWidgetContents);
         tBtn->setFocusPolicy(Qt::ClickFocus);
         tBtn->setMinimumSize(QSize(70, 50));
